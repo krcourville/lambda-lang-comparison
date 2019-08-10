@@ -22,7 +22,7 @@ namespace Contacts.Infrastructure.Repositories
             var client = new AmazonDynamoDBClient(config);
             _context = new DynamoDBContext(client, new DynamoDBContextConfig
             {
-                TableNamePrefix = Environment.GetEnvironmentVariable("CONTACTS_TABLENAME_PREFIX")
+                TableNamePrefix = Environment.GetEnvironmentVariable("TABLENAME_PREFIX")
             });
         }
 
