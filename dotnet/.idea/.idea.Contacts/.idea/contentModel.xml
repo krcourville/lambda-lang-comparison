@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.3.1/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.3.1/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.3.1/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Contacts.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="src" t="Include">
+        <e p="Contacts" t="IncludeRecursive">
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="aws-lambda-tools-defaults.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Contacts.csproj" t="IncludeRecursive" />
+          <e p="Controllers" t="Include">
+            <e p="ContactsController.cs" t="Include" />
+          </e>
+          <e p="deploy" t="Include">
+            <e p="contacts-table.json" t="Include" />
+            <e p="db-load.sh" t="Include" />
+            <e p="db-start.sh" t="Include" />
+          </e>
+          <e p="Infrastructure" t="Include">
+            <e p="Models" t="Include">
+              <e p="Contact.cs" t="Include" />
+            </e>
+            <e p="Repositories" t="Include">
+              <e p="ContactsRepository.cs" t="Include" />
+              <e p="IContactsRepository.cs" t="Include" />
+            </e>
+          </e>
+          <e p="LambdaEntryPoint.cs" t="Include" />
+          <e p="LocalEntryPoint.cs" t="Include" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.1" t="Include">
+                <e p="Contacts.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Readme.md" t="Include" />
+          <e p="Startup.cs" t="Include" />
+          <e p="template.yaml" t="Include" />
+          <e p="web.config" t="Include" />
+        </e>
+      </e>
+      <e p="test" t="Include">
+        <e p="Contacts.Tests" t="IncludeRecursive">
+          <e p="appsettings.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Contacts.Tests.csproj" t="IncludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.1" t="Include">
+                <e p="Contacts.Tests.AssemblyInfo.cs" t="Include" />
+                <e p="Contacts.Tests.Program.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="S3ProxyControllerTests.cs" t="Include" />
+          <e p="SampleRequests" t="Include">
+            <e p="S3ProxyController-Delete.json" t="Include" />
+            <e p="S3ProxyController-Get.json" t="Include" />
+            <e p="S3ProxyController-GetByKey.json" t="Include" />
+            <e p="S3ProxyController-Put.json" t="Include" />
+            <e p="ValuesController-Get.json" t="Include" />
+          </e>
+          <e p="ValuesControllerTests.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Contacts.-1476315.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+  </component>
+</project>

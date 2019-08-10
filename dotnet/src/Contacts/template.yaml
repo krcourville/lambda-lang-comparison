@@ -1,0 +1,82 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application that uses the ASP.NET Core framework running
+  in Amazon Lambda.
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+
+  Brand:
+    Type: String
+    Default: dhi
+
+  Application:
+    Type: String
+    Default: contacts-api
+
+  Owner:
+    Type: String
+    Default: deltaforce
+
+Resources:
+  AspNetCoreFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: Contacts::Contacts.LambdaEntryPoint::FunctionHandlerAsync
+      Runtime: dotnetcore2.1
+      CodeUri: ''
+      MemorySize: 256
+      Timeout: 30
+      Role: null
+      Policies:
+        - AWSLambdaFullAccess
+      Events:
+        ProxyResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+        RootResource:
+          Type: Api
+          Properties:
+            Path: /
+            Method: ANY
+      Environment:
+        Variables:
+          'Dynamodb__ContactsTableName': !Ref ContactsTable
+          
+  ContactsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${Environment}-${Brand}-${Application}-table
+      BillingMode: PAY_PER_REQUEST
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          AttributeType: HASH
+      Tags:
+        - Key: Name
+          Value: !Sub '${Environment}-${Brand}-${Application}-table'
+        - Key: Owner
+          Value:
+            Ref: Owner
+        - Key: Environment
+          Value:
+            Ref: Environment
+        - Key: Brand
+          Value:
+            Ref: Brand
+        - Key: Application
+          Value:
+            Ref: Application
+
+Outputs:
+  ApiURL:
+    Description: API endpoint URL for Prod environment
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/'
