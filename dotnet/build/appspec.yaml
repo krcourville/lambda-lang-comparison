@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - dotnet tool install -g Amazon.Lambda.Tools
+      - dotnet restore
+  build:
+    commands:
+      - cd dotnet/src/Contacts
+      - dotnet lambda publish-layer --layer-name dev-dhi-contacts-layer-poc --layer-type runtime-package-store --s3-bucket dev-df-test-artifacts --s3-prefix dev-dhi-contacts-layer-poc
+artifacts:
+  type: zip
+  files:
+    - src/*
+    - src/cfg/deploy/*
+  discard-paths: no
